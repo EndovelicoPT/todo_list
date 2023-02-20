@@ -1,0 +1,96 @@
+body {
+    background-color: antiquewhite;
+    display: flex;
+    height: inherit;
+    justify-content: center;
+}
+
+
+h1 {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 3.4rem;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 1.4rem;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+
+a:link {
+    text-decoration: none;
+    text-decoration-color: black;
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: line-through;
+    color: black;
+}
+
+.wrapper {
+    background: white;
+    border: 1px solid black;
+    border-radius: 16px;
+    flex-basis: 800px;
+    height: 790px;
+    padding: 20px 35px;
+    margin-top: 50px;
+}
+
+.header {
+    font-family: 'Patrick Hand', cursive;
+    text-align: right;
+}
+
+.d-inline {
+    margin-right: 23px;
+}
+
+.title {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 3.4rem;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.form-scontrol {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2rem;
+}
+
+.to-do-list {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2rem;
+    padding-top: 5px;
+}
+
+.login-form {
+    font-family: 'Patrick Hand', cursive;
+    text-align: center;
+    padding-top: 4px;
+}
+
+.registration-form {
+    font-family: 'Patrick Hand', cursive;
+    padding-top: 4px;
+    text-align: center;
+}
+
+.input-group {
+    font-family: 'Patrick Hand', cursive;
+}
+
+.task-creation {
+    font-family: 'Patrick Hand', cursive;
+    text-align: right;
+}

@@ -1,9 +1,15 @@
-<h3>Task Form</h3>
-<a href="{% url 'tasks' %}">Go back</a>
+{% extends 'base/base.html' %}
+{% block content %}
+<h3>Create a task</h3>
 
-<form method='POST' action="">
+<form class="registration-form" method='POST' action="">
     {% csrf_token %}
-    {{form.as_p}}
+    <label>{{form.title.label}}</label>
+    {{form.title}}
+    <br>
     <input type="submit" value="Submit">
+    <a href="{% url 'tasks' %}"> <input type="submit" value="Go back"></a>
 
 </form>
+
+{% endblock %}

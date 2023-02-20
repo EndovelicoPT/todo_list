@@ -1,28 +1,41 @@
-{% if request.user.is_authenticated %}
-<p>{{request.user}}</p>
-<a href="{% url 'logout' %}">Logout</a>
-{% else %}
-<a href="{% url 'login' %}">Login</a>
-{% endif %}
-<h1>MY TO DO LIST</h1>
-<a href="{% url 'task-create' %}">Add Task</a>
+{% extends 'base/base.html' %}
+{% block content %}
+<section class="notebook">
+    <div class="header-bar">
+        <h3>You have <i>{{count}}</i> incomplete task{{ count|pluralize:"s"}}</h3>
+        <form method="GET">
+            <input type="text" name="search-area" value="{{search_input}}" placeholder="Search for a task"
+                class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+        </form>
+    </div>
+    <div class="to-do-list">
+        <ul class="list-group list-group-flush">
+            {% for task in tasks %}
+            <li class="list-group-item">
+                {% if task.complete %}
+                <i><s><a href="#">{{task.title}}</a></s></i><a href="{% url 'task-update' task.id%}"
+                    style="font-size: 10px; text-decoration: none; padding-left: 10px;">📝</a>
+                </a><a href="{% url 'task-delete' task.id%}"
+                    style="font-size: 10px; text-decoration: none; padding-left: 2px;">🗑️</a>
+                </a>
+                {% else %}
+                <a href="#">{{task.title}}</a><a href="{% url 'task-update' task.id%}"
+                    style="font-size: 10px; text-decoration: none; padding-left: 10px;">📝</a>
+                </a><a href="{% url 'task-delete' task.id%}"
+                    style="font-size: 10px; text-decoration: none; padding-left: 2px;">🗑️</a>
+                </a>
+            </li>
+            {% endif %}
+            {% empty %}
+            <h3>No items in list</h3>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="task-creation">
+        <a href="{% url 'task-create' %}">Create a new task</a>
+    </div>
+</section>
+</div>
 
-<form method="GET">
-    <input type="text" name="search-area" value="{{search_input}}">
-    <input type="submit" value="Search">
-</form>
-
-<table>
-    <tr>
-        <th>Item</th>
-    </tr>
-    {% for task in tasks %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'task-update' task.id%}">Edit</a></td>
-        <td><a href="{% url 'task-delete' task.id%}">Delete</a></td>
-    </tr>
-    {% empty %}
-    <h3>No items in list</h3>
-    {% endfor %}
-</table>
+{% endblock %}
