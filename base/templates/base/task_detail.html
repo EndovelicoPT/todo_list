@@ -1,1 +1,12 @@
-<h1>Task: {{task}}</h1>
+{% extends 'base/base.html' %}
+{% block content %}
+<form class="registration-form" method='POST' action="">
+    {% csrf_token %}
+    <label>{{form.complete.label}}</label>
+    {{form.complete}}
+    <br>
+    <input type="submit" value="Submit">
+    <a href="{% url 'tasks' %}"> <input type="submit" value="Go back"></a>
+
+</form>
+{% endblock %}

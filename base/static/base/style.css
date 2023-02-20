@@ -42,7 +42,7 @@ a:hover {
     border: 1px solid black;
     border-radius: 16px;
     flex-basis: 800px;
-    height: 790px;
+    height: fit-content;
     padding: 20px 35px;
     margin-top: 50px;
 }

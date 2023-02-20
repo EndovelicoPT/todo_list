@@ -14,13 +14,14 @@
             {% for task in tasks %}
             <li class="list-group-item">
                 {% if task.complete %}
-                <i><s><a href="#">{{task.title}}</a></s></i><a href="{% url 'task-update' task.id%}"
-                    style="font-size: 10px; text-decoration: none; padding-left: 10px;">📝</a>
+                <i><s><a href="{% url 'task-update' task.id%}" style="color: gray;">{{task.title}}</a></s></i><a
+                    href="{% url 'task-update' task.id%}"
+                    style="font-size: 10px; text-decoration: none;  padding-left: 10px;">📝</a>
                 </a><a href="{% url 'task-delete' task.id%}"
                     style="font-size: 10px; text-decoration: none; padding-left: 2px;">🗑️</a>
                 </a>
                 {% else %}
-                <a href="#">{{task.title}}</a><a href="{% url 'task-update' task.id%}"
+                <a href="{% url 'task-update' task.id%}">{{task.title}}</a><a href="{% url 'task-update' task.id%}"
                     style="font-size: 10px; text-decoration: none; padding-left: 10px;">📝</a>
                 </a><a href="{% url 'task-delete' task.id%}"
                     style="font-size: 10px; text-decoration: none; padding-left: 2px;">🗑️</a>
